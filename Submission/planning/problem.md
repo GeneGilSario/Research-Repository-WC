@@ -82,4 +82,4 @@ Output: "Good choice {name}, it’s important to have rest days
 Do you want to go back to bed?"
 Input: "yes"
 Output: "Sounds about right...
-Good choice nonetheless."
+Good choice {name} nonetheless."
