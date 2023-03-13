@@ -296,29 +296,35 @@ describe("getBotReply", () => {
 
 
     // The test below ensures that a message appears when you arrive at the end of the message tree
-    it("End of message tree - should reply with 'I can't stay with you all day, go be free!!!' ", () => {
-    const botReply1 = getBotReply('name');
-    const expectedReply1 = "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
+    it.only("End of message tree - should reply with 'I can't stay with you all day, go be free!!!' ", () => {
+    const botReply1 = getBotReply('asdf');
+    const expectedReply1 = `Good morning sleepy head. Welcome to Sadot bot, Here to make your
+    morning choices easier for you. Firstly, I would like to know your
+    name.`;
 
     expect(botReply1).toEqual(expectedReply1);
 
-    const botReply2 = getBotReply("yes");
-    const expectedReply2 = "Snoozing in? Great choice name! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?";
+    const botReply2 = getBotReply('name');
+    const expectedReply2 = "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
 
     expect(botReply2).toEqual(expectedReply2);
 
-
     const botReply3 = getBotReply("yes");
-    const expectedReply3 = "Snoozing in might not be the best option to do name. You have some work to do.";
+    const expectedReply3 = "Snoozing in? Great choice name! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?";
 
     expect(botReply3).toEqual(expectedReply3);
 
-    // Input; "yes"
-    // Output; "I can't stay with you all day, go be free!!!"
     const botReply4 = getBotReply("yes");
-    const expectedReply4 = "I can't stay with you all day, go be free!!!";
+    const expectedReply4 = "Snoozing in might not be the best option to do name. You have some work to do.";
 
     expect(botReply4).toEqual(expectedReply4);
+
+    // Input; "yes"
+    // Output; "I can't stay with you all day, go be free!!!"
+    const botReply5 = getBotReply("yes");
+    const expectedReply5 = "I can't stay with you all day, go be free!!!";
+
+    expect(botReply5).toEqual(expectedReply5);
     });
 
     // test below makes sure the prgram supports the reset option
