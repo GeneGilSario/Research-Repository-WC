@@ -366,4 +366,26 @@ describe("getBotReply", () => {
 
     expect(botReply4).toEqual(expectedReply4);
   });
+
+  // test below makes sure capitalisation does not matter
+  it("Capitalisation does not matter", () => {
+    const botReply1 = getBotReply("asdf");
+    const expectedReply1 = `Good morning sleepy head. Welcome to Sadot bot, Here to make your
+    morning choices easier for you. Firstly, I would like to know your
+    name.`;
+
+    expect(botReply1).toEqual(expectedReply1);
+
+    const botReply2 = getBotReply("name");
+    const expectedReply2 =
+      "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
+
+    expect(botReply2).toEqual(expectedReply2);
+
+    const botReply3 = getBotReply("Yes");
+    const expectedReply3 =
+      "Snoozing in? Great choice name! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?";
+
+    expect(botReply3).toEqual(expectedReply3);
+  });
 });

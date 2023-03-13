@@ -15,7 +15,8 @@ let endOfConversation;
 const getBotReply = (msg) => {
   userInput = msg;
 
-  const userInputLowercase = msg.toLowerCase().trim();
+  // When user input has a capitalised letter, program should work
+  userInput = msg.toLowerCase();
 
   // Assigne messages to variables
   const botStarterMsg = `Good morning again sleepy head. Welcome to Sadot bot, here to make your morning choices easier for you. Firstly, we would like to know your name.`;
@@ -44,6 +45,7 @@ const getBotReply = (msg) => {
   }
 
   // -------------------------------------------------------------- //
+
   if (level === 1) {
     userName = msg;
     level = 2;
@@ -59,15 +61,17 @@ const getBotReply = (msg) => {
   // -------------------------------------------------------------- //
 
   if (
-    userInputLowercase !== "yes" &&
-    userInputLowercase !== "no" &&
-    userInputLowercase !== "restart" &&
-    userInputLowercase !== "help" &&
-    userInputLowercase !== "okay"
+    userInput !== "yes" &&
+    userInput !== "no" &&
+    userInput !== "restart" &&
+    userInput !== "help" &&
+    userInput !== "okay"
   ) {
     level--;
     return `I only understand english, try answering with 'yes' or 'no'. Type 'restart' if you want to restart or type 'help' if you need assistance.`;
   }
+
+  // -------------------------------------------------------------- //
 
   if (level === 2) {
     level = 3;
