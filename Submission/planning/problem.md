@@ -20,11 +20,13 @@ Firstly, we would like to know your name."
 
 Input: "userName"
 Output: "Nice to meet you {name}. Your alarm just rang, would you rather sleep in?
-
 Input: "yes"
 Output: "Snoozing on? Great choice! {name}
 (I mean what's the point of the alarm in the first place...)
 Do you have important work to do today?"
+
+Input: "userName"
+Output: "Nice to meet you {name}. Your alarm just rang, would you rather sleep in?
 Input: "no"
 Output: "Righto {name}, would you like to have breakfast first thing in morning?"
 
@@ -83,3 +85,27 @@ Do you want to go back to bed?"
 Input: "yes"
 Output: "Sounds about right...
 Good choice {name} nonetheless."
+
+// The test below ensures that a message appears when you arrive at the end of the message tree //
+
+Input: "userName"
+Output: "Nice to meet you {name}. Your alarm just rang, would you rather sleep in?
+Input: "yes"
+Output: "Snoozing on? Great choice! {name}
+(I mean what's the point of the alarm in the first place...)
+Do you have important work to do today?"
+Input: "yes"
+Output: "Snoozing in might not be the best option to do {name}. You have some work to do."
+Input; "yes"
+Output; "You have reached the end of troubleshooting"
+
+//
+
+Input: "userName"
+Output: "Nice to meet you {name}. Your alarm just rang, would you rather sleep in?
+Input: "yes"
+Output: "Snoozing on? Great choice! {name}
+(I mean what's the point of the alarm in the first place...)
+Do you have important work to do today?"
+Input: "help"
+Output: "You asked for help. Please answer the question with either yes or no "
