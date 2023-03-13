@@ -296,33 +296,7 @@ describe("getBotReply", () => {
 
 
     // The test below ensures that a message appears when you arrive at the end of the message tree
-    // it("End of message tree - should reply with 'I can't stay with you all day, go be free!!!' ", () => {
-    // const botReply1 = getBotReply('name');
-    // const expectedReply1 = "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
-
-    // expect(botReply1).toEqual(expectedReply1);
-
-    // const botReply2 = getBotReply("yes");
-    // const expectedReply2 = "Snoozing in? Great choice name! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?";
-
-    // expect(botReply2).toEqual(expectedReply2);
-
-
-    // const botReply3 = getBotReply("yes");
-    // const expectedReply3 = "Snoozing in might not be the best option to do name. You have some work to do.";
-
-    // expect(botReply3).toEqual(expectedReply3);
-
-    // // Input; "yes"
-    // // Output; "I can't stay with you all day, go be free!!!"
-    // const botReply4 = getBotReply("yes");
-    // const expectedReply4 = "I can't stay with you all day, go be free!!!";
-
-    // expect(botReply4).toEqual(expectedReply4);
-    // });
-
-    // test below makes sure the prgram supports the reset option
-    it("Supports reset option", () => {
+    it("End of message tree - should reply with 'I can't stay with you all day, go be free!!!' ", () => {
     const botReply1 = getBotReply('name');
     const expectedReply1 = "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
 
@@ -333,29 +307,55 @@ describe("getBotReply", () => {
 
     expect(botReply2).toEqual(expectedReply2);
 
-    const botReply3 = getBotReply("restart");
-    const expectedReply3 = `You have restarted. Good morning again sleepy head. Welcome to Sadot bot, here to make your morning choices easier for you. Firstly, we would like to know your name.`;
+
+    const botReply3 = getBotReply("yes");
+    const expectedReply3 = "Snoozing in might not be the best option to do name. You have some work to do.";
 
     expect(botReply3).toEqual(expectedReply3);
+
+    // Input; "yes"
+    // Output; "I can't stay with you all day, go be free!!!"
+    const botReply4 = getBotReply("yes");
+    const expectedReply4 = "I can't stay with you all day, go be free!!!";
+
+    expect(botReply4).toEqual(expectedReply4);
     });
+
+    // test below makes sure the prgram supports the reset option
+    // it("Supports reset option", () => {
+    // const botReply1 = getBotReply('name');
+    // const expectedReply1 = "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
+
+    // expect(botReply1).toEqual(expectedReply1);
+
+    // const botReply2 = getBotReply("yes");
+    // const expectedReply2 = "Snoozing in? Great choice name! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?";
+
+    // expect(botReply2).toEqual(expectedReply2);
+
+    // const botReply3 = getBotReply("restart");
+    // const expectedReply3 = `You have restarted. Good morning again sleepy head. Welcome to Sadot bot, here to make your morning choices easier for you. Firstly, we would like to know your name.`;
+
+    // expect(botReply3).toEqual(expectedReply3);
+    // });
 
 
     // test below makes sure the prgram supports the help option
-    it("Supports help option", () => {
-      const botReply1 = getBotReply('name');
-      const expectedReply1 = "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
+    // it("Supports help option", () => {
+    //   const botReply1 = getBotReply('name');
+    //   const expectedReply1 = "Nice to meet you name. Your alarm just rang, would you rather sleep in?";
   
-      expect(botReply1).toEqual(expectedReply1);
+    //   expect(botReply1).toEqual(expectedReply1);
   
-      const botReply2 = getBotReply("yes");
-      const expectedReply2 = "Snoozing in? Great choice name! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?";
+    //   const botReply2 = getBotReply("yes");
+    //   const expectedReply2 = "Snoozing in? Great choice name! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?";
   
-      expect(botReply2).toEqual(expectedReply2);
+    //   expect(botReply2).toEqual(expectedReply2);
   
-      const botReply3 = getBotReply("help");
-      const expectedReply3 = `You have restarted. Good morning again sleepy head. Welcome to Sadot bot, here to make your morning choices easier for you. Firstly, we would like to know your name.`;
+    //   const botReply3 = getBotReply("help");
+    //   const expectedReply3 = `You have restarted. Good morning again sleepy head. Welcome to Sadot bot, here to make your morning choices easier for you. Firstly, we would like to know your name.`;
   
-      expect(botReply3).toEqual(expectedReply3);
-      });
+    //   expect(botReply3).toEqual(expectedReply3);
+    //   });
 
 });
