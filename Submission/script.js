@@ -23,6 +23,7 @@ const getBotReply = (msg) => {
   const helpResponse = `You asked for help. Please answer the question with either yes or no. Press 'okay' to resume your session.`;
 
   if (userInput === "restart") {
+    endOfConversation = false;
     level = 1;
     path = "";
     appropriateResponse = `You have restarted. ${botStarterMsg}`;
@@ -31,7 +32,11 @@ const getBotReply = (msg) => {
 
   if (userInput === "help") {
     return helpResponse;
-  } else if (endOfConversation === true) {
+  } 
+  
+  if (endOfConversation === true) {
+    level = 1;
+    path = '';
     return "Your session has ended. I can't stay with you all day, go be free!!!";
   }
 
