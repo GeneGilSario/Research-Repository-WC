@@ -4,6 +4,7 @@
  * @returns {string} The text that will be used as the bot reply and shown to the user. For example: "Hello Katie, do you take milk in your tea?"
  *
  */
+// let variables
 let level = 0;
 let userInput;
 let path;
@@ -11,21 +12,25 @@ let userName;
 let appropriateResponse;
 let endOfConversation;
 
-
-
 const getBotReply = (msg) => {
-    userInput = msg;
- 
-   const botStarterMsg = `Good morning again sleepy head. Welcome to Sadot bot, here to make your morning choices easier for you. Firstly, we would like to know your name.`;
-  
+  userInput = msg;
 
-   if (userInput === 'restart'){
+  const userInputLowercase = msg.toLowerCase().trim();
+
+  // Assigne messages to variables
+  const botStarterMsg = `Good morning again sleepy head. Welcome to Sadot bot, here to make your morning choices easier for you. Firstly, we would like to know your name.`;
+  const helpResponse = `You asked for help. Please answer the question with either yes or no. Press 'okay' to resume your session.`
+
+  if (userInput === 'restart'){
     level = 1;
     path = '';
     appropriateResponse = `You have restarted. ${botStarterMsg}`
-    return appropriateResponse;
-   } 
-   else if (endOfConversation === true){
+    return appropriateResponse; 
+  } 
+  
+  if (userInput === 'help'){
+    return helpResponse;
+  } else if (endOfConversation === true){
     return "I can't stay with you all day, go be free!!!";
   } 
 
@@ -38,19 +43,41 @@ const getBotReply = (msg) => {
     return appropriateResponse;
   }
 
+// -------------------------------------------------------------- //
   if (level === 1){ 
     userName = msg;
     level = 2;
+
+    if (userInput === 'okay'){
+      level = 1;
+      return appropriateResponse;
+    }
     appropriateResponse = `Nice to meet you ${userName}. Your alarm just rang, would you rather sleep in?`;
     return appropriateResponse;
   }
 
+// -------------------------------------------------------------- //
+
+  if (userInputLowercase !== 'yes' &&
+      userInputLowercase !== 'no' &&
+      userInputLowercase !== 'restart' &&
+      userInputLowercase !== 'help'){
+      level--; 
+      return  `I only understand english, try answering with 'yes' or 'no'. Type 'restart' if you want to restart or type 'help' if you need assistance.`
+  }
+
   if (level === 2){
     level = 3;
+    
+    
+    if (userInput === 'okay'){
+      level = 2;
+      return appropriateResponse;
+    }
 
     if (userInput === 'yes'){
       path = 'yes';
-      appropriateResponse = `Snoozing in? Great choice ${userName}! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?`;
+      appropriateResponse = `Snoozing in? Great choice ${userName}! (I mean what's the point of the alarm in the first place...) Do you have important work to do today?`;      
       return appropriateResponse;
     }
 
@@ -59,13 +86,23 @@ const getBotReply = (msg) => {
       appropriateResponse = `Righto ${userName}, would you like to have breakfast first thing in morning?`;
       return appropriateResponse;
     }
+
   }
+
+  // -------------------------------------------------------------- //
 
   if (level === 3){
     level = 4;
     if (path === 'yes'){
+      
+      if (userInput === 'okay'){
+        level = 3;
+        path = 'yes'
+        return appropriateResponse;
+      }
+      
       endOfConversation = true;
-
+    
       if (userInput === 'yes'){
         appropriateResponse = `Snoozing in might not be the best option to do ${userName}. You have some work to do.`;
         return appropriateResponse;
@@ -79,13 +116,19 @@ const getBotReply = (msg) => {
     }
 
     if (path === 'no'){
-       
+      if (userInput === 'okay'){
+        level = 3;
+        path = 'no'
+        return appropriateResponse;
+      }
+
       if (userInput === 'yes'){
         endOfConversation = true;
 
         appropriateResponse = `Great choice ${userName}, having a good breakfast is a good start to a morning.`;
         return appropriateResponse;
       }
+       
 
       if (userInput === 'no'){
         appropriateResponse = `Alrighty ${userName}, let's get ready for the busy work ahead. Are you going to the gym today?`;
@@ -95,8 +138,17 @@ const getBotReply = (msg) => {
     
   }
 
+// -------------------------------------------------------------------------//
+
   if (level === 4){
     level = 5;
+
+    if (userInput === 'okay'){
+      level = 4;
+      path = 'no'
+      return appropriateResponse;
+    }
+
     if (userInput === 'yes'){
       endOfConversation = true;
 
@@ -110,7 +162,16 @@ const getBotReply = (msg) => {
     } 
   }
 
+// -------------------------------------------------------------------------//
+
   if (level === 5){
+
+    if (userInput === 'okay'){
+      level = 5;
+      path = 'no'
+      return appropriateResponse;
+    }
+
     endOfConversation = true;
     
     if (userInput === 'yes'){
