@@ -32,11 +32,11 @@ const getBotReply = (msg) => {
 
   if (userInput === "help") {
     return helpResponse;
-  } 
-  
+  }
+
   if (endOfConversation === true) {
     level = 1;
-    path = '';
+    path = "";
     return "Your session has ended. I can't stay with you all day, go be free!!!";
   }
 
