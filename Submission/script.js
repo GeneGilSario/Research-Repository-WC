@@ -37,7 +37,7 @@ const getBotReply = (msg) => {
   if (endOfConversation === true) {
     level = 1;
     path = "";
-    return "Your session has ended. I can't stay with you all day, go be free!!!";
+    return "Your session has ended. I can't stay with you all day, go be free!!! (Type restart if you want to go back to the start)";
   }
 
   if (level === 0) {
@@ -72,7 +72,6 @@ const getBotReply = (msg) => {
     userInput !== "help" &&
     userInput !== "okay"
   ) {
-    level--;
     return `I only understand english, try answering with 'yes' or 'no'. Type 'restart' if you want to restart or type 'help' if you need assistance.`;
   }
 
@@ -113,12 +112,12 @@ const getBotReply = (msg) => {
       endOfConversation = true;
 
       if (userInput === "yes") {
-        appropriateResponse = `Snoozing in might not be the best option to do ${userName}. You have some work to do.`;
+        appropriateResponse = `Snoozing in might not be the best option to do ${userName}. You have some work to do. You can do this!!!`;
         return appropriateResponse;
       }
 
       if (userInput === "no") {
-        appropriateResponse = `Ahh must be a good feeling... Have a good sleep ${userName}`;
+        appropriateResponse = `Ahh must be a good feeling... Enjoy your sleep ${userName}`;
         return appropriateResponse;
       }
     }
@@ -133,7 +132,7 @@ const getBotReply = (msg) => {
       if (userInput === "yes") {
         endOfConversation = true;
 
-        appropriateResponse = `Great choice ${userName}, having a good breakfast is a good start to a morning.`;
+        appropriateResponse = `Great choice ${userName}, having a good breakfast is a good start to a morning. Enjoy your day ${userName}`;
         return appropriateResponse;
       }
 
@@ -180,7 +179,7 @@ const getBotReply = (msg) => {
     endOfConversation = true;
 
     if (userInput === "yes") {
-      appropriateResponse = `Sounds about right...Good choice nonetheless. Rest well ${userName}`;
+      appropriateResponse = `Sounds about right...Good choice nonetheless. Take it easy ${userName}`;
       return appropriateResponse;
     }
 

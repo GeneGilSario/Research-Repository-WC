@@ -86,7 +86,7 @@ describe("getBotReply", () => {
 
     const botReply4 = getBotReply("yes");
     const expectedReply4 =
-      "Snoozing in might not be the best option to do name. You have some work to do.";
+      "Snoozing in might not be the best option to do name. You have some work to do. You can do this!!!";
 
     expect(botReply4).toEqual(expectedReply4);
   });
@@ -113,7 +113,7 @@ describe("getBotReply", () => {
 
     const botReply4 = getBotReply("no");
     const expectedReply4 =
-      "Ahh must be a good feeling... Have a good sleep name";
+      "Ahh must be a good feeling... Enjoy your sleep name";
 
     expect(botReply4).toEqual(expectedReply4);
   });
@@ -140,7 +140,7 @@ describe("getBotReply", () => {
 
     const botReply4 = getBotReply("yes");
     const expectedReply4 =
-      "Great choice name, having a good breakfast is a good start to a morning.";
+      "Great choice name, having a good breakfast is a good start to a morning. Enjoy your day name";
 
     expect(botReply4).toEqual(expectedReply4);
   });
@@ -238,7 +238,7 @@ describe("getBotReply", () => {
     expect(botReply5).toEqual(expectedReply5);
   });
 
-  it("Path (name , no , no , no , yes) - last response should be 'Sounds about right...Good choice nonetheless.", () => {
+  it("Path (name , no , no , no , yes) - last response should be 'Sounds about right...Good choice nonetheless. Take it easy name", () => {
     const botReply1 = getBotReply("asdf");
     const expectedReply1 = `Good morning sleepy head. Welcome to Sadot bot, Here to make your
     morning choices easier for you. Firstly, I would like to know your
@@ -272,7 +272,7 @@ describe("getBotReply", () => {
 
     const botReply6 = getBotReply("yes");
     const expectedReply6 =
-      "Sounds about right...Good choice nonetheless. Rest well name";
+      "Sounds about right...Good choice nonetheless. Take it easy name";
 
     expect(botReply6).toEqual(expectedReply6);
   });
@@ -300,7 +300,7 @@ describe("getBotReply", () => {
 
     const botReply4 = getBotReply("yes");
     const expectedReply4 =
-      "Snoozing in might not be the best option to do name. You have some work to do.";
+      "Snoozing in might not be the best option to do name. You have some work to do. You can do this!!!";
 
     expect(botReply4).toEqual(expectedReply4);
 
@@ -308,7 +308,7 @@ describe("getBotReply", () => {
     // Output; "I can't stay with you all day, go be free!!!"
     const botReply5 = getBotReply("yes");
     const expectedReply5 =
-      "Your session has ended. I can't stay with you all day, go be free!!!";
+      "Your session has ended. I can't stay with you all day, go be free!!! (Type restart if you want to go back to the start)";
 
     expect(botReply5).toEqual(expectedReply5);
   });
